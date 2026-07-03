@@ -16,9 +16,9 @@ def register():
         error = None
 
         if not username:
-            error = 'Username is required.'
+            error = 'O nome de usuário é obrigatório.'
         elif not password:
-            error = 'Password is required.'
+            error = 'A senha é obrigatória.'
 
         if error is None:
             try:
@@ -28,7 +28,7 @@ def register():
                 )
                 db.commit()
             except db.IntegrityError:
-                error = f"User {username} is already registered."
+                error = f"O usuário {username} já está cadastrado."
             else:
                 return redirect(url_for("auth.login"))
 
@@ -48,9 +48,9 @@ def login():
         ).fetchone()
 
         if user is None:
-            error = 'Incorrect username.'
+            error = 'Usuário incorreto.'
         elif not check_password_hash(user['password'], password):
-            error = 'Incorrect password.'
+            error = 'Senha incorreta.'
 
         if error is None:
             session.clear()

@@ -28,7 +28,7 @@ def create():
         error = None
 
         if not title:
-            error = 'Title is required.'
+            error = 'O título é obrigatório.'
 
         if error is not None:
             flash(error)
@@ -53,7 +53,7 @@ def get_song(id, check_author=True):
     ).fetchone()
 
     if song is None:
-        abort(404, f"Song id {id} doesn't exist.")
+        abort(404, f"Música com id {id} não encontrada.")
 
     if check_author and song['author_id'] != g.user['id']:
         abort(403)
@@ -73,7 +73,7 @@ def update(id):
         error = None
 
         if not title:
-            error = 'Title is required.'
+            error = 'O título é obrigatório.'
 
         if error is not None:
             flash(error)

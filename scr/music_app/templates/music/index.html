@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1>{% block title %}Minha <pre></pre>laylist{% endblock %}</h1>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('music.create') }}">Adicionar música</a>
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  {% for song in songs %}
+    <article class="post">
+      <header>
+        <div>
+          <h1>{{ song['title'] }}</h1>
+          <div class="about">Artista: {{ song['artist'] }} | Álbum: {{ song['album'] }} | Gênero: {{ song['genre'] }}</div>
+          <div class="about">Adicionado por {{ song['username'] }} em {{ song['created'].strftime('%d/%m/%Y') }}</div>
+        </div>
+        {% if g.user['id'] == song['author_id'] %}
+          <a class="action" href="{{ url_for('music.update', id=song['id']) }}">Editar</a>
+        {% endif %}
+      </header>
+    </article>
+    {% if not loop.last %}
+      <hr>
+    {% endif %}
+  {% endfor %}
+{% endblock %}

@@ -1,15 +1,15 @@
 <!doctype html>
-<title>{% block title %}{% endblock %} - Music App</title>
+<title>{% block title %}{% endblock %} - App de Música</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 <nav>
-  <h1>Music App</h1>
+  <h1>App de Música</h1>
   <ul>
     {% if g.user %}
       <li><span>{{ g.user['username'] }}</span>
-      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+      <li><a href="{{ url_for('auth.logout') }}">Sair</a>
     {% else %}
-      <li><a href="{{ url_for('auth.register') }}">Register</a>
-      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+      <li><a href="{{ url_for('auth.register') }}">Cadastrar</a>
+      <li><a href="{{ url_for('auth.login') }}">Entrar</a>
     {% endif %}
   </ul>
 </nav>

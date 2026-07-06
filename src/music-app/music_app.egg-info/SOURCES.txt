@@ -1,0 +1,10 @@
+pyproject.toml
+music_app/__init__.py
+music_app/auth.py
+music_app/db.py
+music_app/music.py
+music_app.egg-info/PKG-INFO
+music_app.egg-info/SOURCES.txt
+music_app.egg-info/dependency_links.txt
+music_app.egg-info/requires.txt
+music_app.egg-info/top_level.txt

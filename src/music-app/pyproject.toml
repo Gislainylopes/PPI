@@ -1,0 +1,12 @@
+[project]
+name = "music_app"
+version = "1.0.0"
+dependencies = [
+    "flask",
+    "werkzeug",
+    "click"
+]
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
